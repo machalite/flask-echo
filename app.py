@@ -14,8 +14,6 @@
 
 from __future__ import unicode_literals
 
-import os
-import sys
 from argparse import ArgumentParser
 
 from flask import Flask, request, abort
@@ -34,16 +32,6 @@ app = Flask(__name__)
 # get channel_secret and channel_access_token from your environment variable
 channel_secret = 'a62c4f246f3dfe799fa69c44d9d99a82'
 channel_access_token = 'DUTE1UOjEqCQpJynGDa59KSV42WXmVjM8/Dw2qaFuyA9ePaA40Qy2lHRcfRaM0SzM3HpvNYySB2IrkJGiQ+1RktH1Ko6285vipalBZ8WtDy+6T1pRZDnS/NHDvUgadaxLCR0TbACjTKRyZkMpOjYUgdB04t89/1O/w1cDnyilFU='
-if channel_secret is None:
-    print('Specify LINE_CHANNEL_SECRET as environment variable.')
-    sys.exit(1)
-else:
-    print('LINE_CHANNEL_SECRET exist')
-if channel_access_token is None:
-    print('Specify LINE_CHANNEL_ACCESS_TOKEN as environment variable.')
-    sys.exit(1)
-else:
-    print('LINE_CHANNEL_ACCESS_TOKEN exist')
 
 line_bot_api = LineBotApi(channel_access_token)
 parser = WebhookParser(channel_secret)
